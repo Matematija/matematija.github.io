@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matija Medvidović</title>
+  <meta name="description"
+    content="Postdoctoral researcher at ETH Zürich working on variational AI for quantum science.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F6F9FF;
+      --white: #FFFFFF;
+      --blue-50: #EFF6FF;
+      --blue-100: #DBEAFE;
+      --blue-200: #BFDBFE;
+      --blue-300: #93C5FD;
+      --blue-400: #60A5FA;
+      --blue-500: #3B82F6;
+      --blue-600: #2563EB;
+      --slate-50: #F8FAFC;
+      --text-1: #0F172A;
+      --text-2: #475569;
+      --text-3: #94A3B8;
+      --border: #E2E8F0;
+      --r: 14px;
+      --r-sm: 8px;
+      --shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 4px 20px rgba(59, 130, 246, 0.07);
+      --font: 'Space Grotesk', sans-serif;
+      --mono: 'DM Mono', monospace;
+      --max-w: 880px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text-1);
+      line-height: 1.65;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ─────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(246, 249, 255, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-1);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 0.15rem;
+    }
+
+    .nav-links a {
+      color: var(--text-2);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 0.35rem 0.7rem;
+      border-radius: var(--r-sm);
+      transition: color .15s, background .15s;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue-600);
+      background: var(--blue-50);
+    }
+
+    /* ── LAYOUT ──────────────────────────────────────── */
+    main {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+    }
+
+    section {
+      padding: 4.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue-500);
+      margin-bottom: 0.6rem;
+    }
+
+    h2 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--text-1);
+      margin-bottom: 2rem;
+      line-height: 1.15;
+    }
+
+    /* ── ABOUT ───────────────────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .photo-col {
+      position: sticky;
+      top: 78px;
+    }
+
+    .photo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      object-position: top;
+      border-radius: var(--r);
+      border: 3px solid var(--white);
+      box-shadow: var(--shadow);
+      display: block;
+    }
+
+    .photo-fallback {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: var(--r);
+      background: var(--blue-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--blue-400);
+      letter-spacing: -0.05em;
+    }
+
+    .about-content>h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 0.2rem;
+    }
+
+    .role {
+      font-size: 0.975rem;
+      color: var(--text-2);
+      font-weight: 400;
+    }
+
+    .institution {
+      font-size: 0.9rem;
+      color: var(--blue-500);
+      font-weight: 500;
+      margin-bottom: 1.6rem;
+    }
+
+    .bio {
+      font-size: 0.96rem;
+      color: var(--text-2);
+      line-height: 1.8;
+      margin-bottom: 0.9rem;
+    }
+
+    /* social pills */
+    .socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 1.6rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.38rem;
+      padding: 0.38rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      color: var(--text-2);
+      background: var(--white);
+      transition: border-color .15s, color .15s, background .15s, box-shadow .15s, transform .15s;
+      white-space: nowrap;
+    }
+
+    .pill:hover {
+      border-color: var(--blue-300);
+      color: var(--blue-600);
+      background: var(--blue-50);
+      transform: translateY(-1px);
+      box-shadow: 0 3px 10px rgba(59, 130, 246, 0.14);
+    }
+
+    .pill svg {
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+    }
+
+    /* ── RESEARCH ────────────────────────────────────── */
+    .accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    details.card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    details.card:hover,
+    details.card[open] {
+      border-color: var(--blue-200);
+      box-shadow: var(--shadow);
+    }
+
+    details.card summary {
+      padding: 1.2rem 1.4rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text-1);
+      letter-spacing: -0.01em;
+      transition: color .15s;
+      user-select: none;
+    }
+
+    details.card summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.card[open] summary {
+      color: var(--blue-600);
+      border-bottom: 1px solid var(--blue-100);
+    }
+
+    .chevron {
+      width: 17px;
+      height: 17px;
+      color: var(--text-3);
+      transition: transform .22s ease, color .2s;
+      flex-shrink: 0;
+    }
+
+    details.card[open] .chevron {
+      transform: rotate(90deg);
+      color: var(--blue-400);
+    }
+
+    .card-body {
+      padding: 1.2rem 1.4rem 1.4rem;
+      font-size: 0.94rem;
+      color: var(--text-2);
+      line-height: 1.8;
+    }
+
+    .card-body p+p {
+      margin-top: 0.7rem;
+    }
+
+    .card-body a {
+      color: var(--blue-600);
+      text-decoration: none;
+      background: var(--blue-50);
+      padding: 0.05em 0.2em;
+      border-radius: 3px;
+      transition: background .15s;
+    }
+
+    .card-body a:hover {
+      background: var(--blue-100);
+      text-decoration: underline;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 400;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background: var(--blue-50);
+      color: var(--blue-600);
+      border: 1px solid var(--blue-100);
+    }
+
+    /* ── BACKGROUND ──────────────────────────────────── */
+    .cv-group {
+      margin-bottom: 2rem;
+    }
+
+    .cv-group-label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue-500);
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.5rem;
+      border-bottom: 1px solid var(--blue-100);
+    }
+
+    .cv-row {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 1rem;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cv-row:last-child {
+      border-bottom: none;
+    }
+
+    .cv-period {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--text-3);
+      padding-top: 0.12rem;
+      line-height: 1.5;
+    }
+
+    .cv-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-1);
+      letter-spacing: -0.01em;
+      margin-bottom: 0.1rem;
+    }
+
+    .cv-sub {
+      font-size: 0.875rem;
+      color: var(--text-2);
+      line-height: 1.55;
+    }
+
+    .cv-note {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--text-3);
+      margin-top: 0.2rem;
+    }
+
+    .cv-cta {
+      margin-top: 1.5rem;
+      padding: 0.9rem 1.2rem;
+      background: var(--blue-50);
+      border: 1px solid var(--blue-100);
+      border-radius: var(--r-sm);
+      font-size: 0.88rem;
+      color: var(--text-2);
+    }
+
+    .cv-cta a {
+      color: var(--blue-600);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .cv-cta a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── PUBLICATIONS ────────────────────────────────── */
+    .pub-year-group {
+      margin-bottom: 2.2rem;
+    }
+
+    .pub-year-label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue-500);
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
+      border-bottom: 1px solid var(--blue-100);
+    }
+
+    .pub {
+      display: flex;
+      gap: 0.85rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+
+    .pub:last-child {
+      border-bottom: none;
+    }
+
+    .pub-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--blue-300);
+      flex-shrink: 0;
+      margin-top: 0.45rem;
+    }
+
+    .pub.preprint .pub-dot {
+      background: var(--border);
+    }
+
+    .pub-body {
+      flex: 1;
+    }
+
+    .pub-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-1);
+      letter-spacing: -0.01em;
+      line-height: 1.4;
+      margin-bottom: 0.2rem;
+    }
+
+    .pub-authors {
+      font-size: 0.84rem;
+      color: var(--text-2);
+      line-height: 1.5;
+      margin-bottom: 0.25rem;
+    }
+
+    .pub-authors b {
+      color: var(--text-1);
+      font-weight: 600;
+    }
+
+    .pub-venue {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--text-3);
+      font-style: normal;
+    }
+
+    .pub-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-top: 0.4rem;
+    }
+
+    .pub-link {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 400;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background .15s, border-color .15s;
+      display: inline-block;
+    }
+
+    .pub-link.arxiv {
+      background: #FFF7ED;
+      color: #C2410C;
+      border: 1px solid #FDBA74;
+    }
+
+    .pub-link.arxiv:hover {
+      background: #FFEDD5;
+    }
+
+    .pub-link.journal {
+      background: var(--blue-50);
+      color: var(--blue-600);
+      border: 1px solid var(--blue-200);
+    }
+
+    .pub-link.journal:hover {
+      background: var(--blue-100);
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      font-weight: 400;
+      padding: 0.15rem 0.48rem;
+      border-radius: 999px;
+      background: #F0FDF4;
+      color: #15803D;
+      border: 1px solid #BBF7D0;
+      margin-left: 0.3rem;
+      vertical-align: middle;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────── */
+    footer {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 2rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--text-3);
+      border-top: 1px solid var(--border);
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 600px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .photo-col {
+        position: static;
+        max-width: 150px;
+      }
+
+      .about-content>h1 {
+        font-size: 1.75rem;
+      }
+
+      h2 {
+        font-size: 1.6rem;
+      }
+
+      .cv-row {
+        grid-template-columns: 80px 1fr;
+      }
+
+      .nav-inner {
+        padding: 0 1rem;
+      }
+
+      main {
+        padding: 0 1rem 4rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#about" class="nav-name">Matija Medvidović</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#background">Background</a></li>
+        <li><a href="#publications">Publications</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ── ABOUT ─────────────────────────────────────── -->
+    <section id="about">
+      <div class="about-grid">
+
+        <div class="photo-col">
+          <img src="assets/photo.jpg" alt="Matija Medvidović" class="photo"
+            onerror="this.style.display='none'; document.getElementById('photo-fallback').style.display='flex';">
+          <div id="photo-fallback" class="photo-fallback" style="display:none;">MM</div>
+        </div>
+
+        <div class="about-content">
+          <h1>Matija Medvidović</h1>
+          <div class="role">Postdoctoral Researcher</div>
+          <div class="institution">ETH Zürich &nbsp;&middot;&nbsp; <a href="mailto:mmedvidovic@ethz.ch"
+              style="color:inherit;text-decoration:none;">mmedvidovic@ethz.ch</a></div>
+
+          <p class="bio">
+            I am a physicist and machine learning researcher working at the intersection of artificial intelligence and
+            quantum science. My research builds differentiable, amortizable, and physically principled solvers for
+            quantum physics and chemistry — methods where the laws of nature serve as hard structural priors rather than
+            learned heuristics. I believe method development and scientific discovery are one and the same: better
+            scientific AI does not merely compute faster, it enables precision at entirely new scales.
+          </p>
+          <p class="bio">
+            My work pursues two interconnected directions: AI-driven solvers for large-scale electronic structure, and
+            neural quantum states as precision simulation tools for near-term quantum hardware. I completed my PhD at
+            Columbia University and the Flatiron Institute, supported by the Simons Foundation CCQ Graduate Scholar
+            Award.
+          </p>
+
+          <div class="socials">
+            <a href="https://github.com/Matematija" target="_blank" rel="noopener" class="pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+              </svg>
+              GitHub
+            </a>
+            <a href="https://scholar.google.com/citations?user=APuPKDIAAAAJ" target="_blank" rel="noopener"
+              class="pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+              </svg>
+              Google Scholar
+            </a>
+            <a href="https://orcid.org/0000-0001-6770-0341" target="_blank" rel="noopener" class="pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="16" />
+                <line x1="8" y1="12" x2="16" y2="12" />
+              </svg>
+              ORCID
+            </a>
+            <!-- Update this URL to match your actual LinkedIn profile -->
+            <a href="https://www.linkedin.com/in/matija-medvidovic-1152a0213" target="_blank" rel="noopener"
+              class="pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── RESEARCH ───────────────────────────────────── -->
+    <section id="research">
+      <div class="eyebrow">Work</div>
+      <h2>Research</h2>
+
+      <div class="accordion">
+
+        <details class="card">
+          <summary>
+            Electronic Structure
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </summary>
+          <div class="card-body">
+            <p>
+              Density functional theory (DFT) has been a central pillar of computational physics, chemistry, and
+              materials science for decades. It offers a tunable balance between accuracy and efficiency through the
+              choice of exchange-correlation (XC) functional. The most accurate orbital-dependent XC approximations,
+              however, produce a non-physical and non-local effective interaction, leading to systematic errors in
+              ionization potentials, charge transfer, and long-range behavior.
+            </p>
+            <p>
+              Currently, I am developing variational solutions for computing <strong>optimized effective potentials
+                (OEP)</strong>
+              using a Gaussian multipole splat parameterization of the source density, recovering exact asymptotic
+              boundary conditions. I have also explored <a href="https://doi.org/10.1103/PhysRevResearch.7.023113"
+                target="_blank" rel="noopener">neural network distillation of orbital-dependent XC functionals</a>
+              into accurate local models, and co-developed <strong>GradDFT</strong>, an open-source, differentiable
+              software library for integrating machine learning with DFT. Beyond mean-field, I have shown that <a
+                href="https://arxiv.org/abs/2403.15372" target="_blank" rel="noopener">deep
+                learning can build latent representations of many-body vertex functions</a>, making correlated-phase
+              calculations accessible without discarding any underlying physics.
+            </p>
+            <div class="tags">
+              <span class="tag">Density functional theory</span>
+              <span class="tag">Differentiable solvers</span>
+              <span class="tag">Amortized inference</span>
+            </div>
+          </div>
+        </details>
+
+        <details class="card">
+          <summary>
+            Computational Quantum Physics
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </summary>
+          <div class="card-body">
+            <p>
+              Neural network quantum states (NQS) have emerged as a powerful variational ansatz within quantum Monte
+              Carlo: wavefunctions are represented as neural networks and optimized via online sampling from the quantum
+              Born distribution. My work has expanded the reach of NQS beyond the ground state.
+            </p>
+            <p>
+              My work has demonstrated <a href="https://doi.org/10.1103/PRXQuantum.4.040302" target="_blank"
+                rel="noopener">NQS-based simulation of <strong>real-time dynamics</strong> in
+                continuous-variable systems</a> and developed a <a href="https://arxiv.org/abs/2510.15030"
+                target="_blank" rel="noopener">variational method for computing many-body <strong>excited
+                  states in parallel</strong></a>.
+              I showed that <a href="https://doi.org/10.1038/s41534-021-00440-z" target="_blank" rel="noopener">NQS can
+                classically simulate large quantum circuits</a> via a stochastic geometric
+              optimization scheme, positioning NQS as a precise classical benchmark for near-term quantum
+              hardware. I also authored a comprehensive review article on the NQS-VMC field.
+            </p>
+            <div class="tags">
+              <span class="tag">Neural quantum states</span>
+              <span class="tag">Variational Monte Carlo</span>
+              <span class="tag">Real-time dynamics</span>
+              <span class="tag">Excited states</span>
+              <span class="tag">Quantum circuit simulation</span>
+            </div>
+          </div>
+        </details>
+
+        <details class="card">
+          <summary>
+            Artificial Intelligence
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </summary>
+          <div class="card-body">
+            <p>
+              AI methods work best in science when the laws of nature are built in as hard structural priors. The
+              variational principle, conservation laws, and exact asymptotic constraints are often sufficient to reach
+              solutions with far less data than data-driven approaches require. When data is available, it acts as a
+              regularizer rather than the primary driver, flipping the script established by the broader AI community.
+            </p>
+            <p>
+              My AI research focuses on <strong>physics-informed machine learning</strong>: differentiable solvers for
+              quantum science. I have worked on <a href="https://arxiv.org/abs/2012.01442" target="_blank"
+                rel="noopener">generative models for lattice field theories</a>, <a
+                href="https://arxiv.org/abs/2403.15372" target="_blank" rel="noopener">ML-based compression
+                of quantum many-body physics</a>, and <a href="https://doi.org/10.1103/PhysRevLett.129.136402"
+                target="_blank" rel="noopener">latent flow representations of renormalization group</a>.
+            </p>
+            <div class="tags">
+              <span class="tag">Physics-informed ML</span>
+              <span class="tag">Generative models</span>
+              <span class="tag">Geometric deep learning</span>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- ── BACKGROUND ────────────────────────────────── -->
+    <section id="background">
+      <div class="eyebrow">CV</div>
+      <h2>Background</h2>
+
+      <div class="cv-group">
+        <div class="cv-group-label">Current position</div>
+        <div class="cv-row">
+          <div class="cv-period">2024 – now</div>
+          <div>
+            <div class="cv-title">Postdoctoral Researcher</div>
+            <div class="cv-sub">ETH Zürich &nbsp;·&nbsp; Group of Juan Carrasquilla</div>
+            <div class="cv-note">AI-driven methods for quantum electronic structure and many-body physics</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-group">
+        <div class="cv-group-label">Education</div>
+        <div class="cv-row">
+          <div class="cv-period">2019 – 2024</div>
+          <div>
+            <div class="cv-title">PhD in Physics</div>
+            <div class="cv-sub">Columbia University &amp; Flatiron Institute, New York</div>
+            <div class="cv-note">Supervisor: Dries Sels &nbsp;·&nbsp; Simons Foundation CCQ Graduate Scholar Award</div>
+          </div>
+        </div>
+        <div class="cv-row">
+          <div class="cv-period">2018 – 2019</div>
+          <div>
+            <div class="cv-title">Perimeter Scholars International</div>
+            <div class="cv-sub">Perimeter Institute &amp; University of Waterloo, Ontario</div>
+            <div class="cv-note">Supervisor: Juan Carrasquilla &nbsp;·&nbsp; Full scholarship</div>
+          </div>
+        </div>
+        <div class="cv-row">
+          <div class="cv-period">2012 – 2017</div>
+          <div>
+            <div class="cv-title">MSc in Physics</div>
+            <div class="cv-sub">University of Zagreb, Croatia</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-group">
+        <div class="cv-group-label">Industry</div>
+        <div class="cv-row">
+          <div class="cv-period">2022</div>
+          <div>
+            <div class="cv-title">Research Resident</div>
+            <div class="cv-sub">Xanadu Quantum Technologies, Toronto</div>
+            <div class="cv-note">Quantum circuit cutting with randomized measurements &nbsp;·&nbsp; Published in Quantum
+              (2023)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-group">
+        <div class="cv-group-label">Honors &amp; Awards</div>
+        <div class="cv-row">
+          <div class="cv-period">2019 – 2024</div>
+          <div>
+            <div class="cv-title">Flatiron CCQ Graduate Scholar Award</div>
+            <div class="cv-sub">Simons Foundation &nbsp;·&nbsp; Full doctoral funding, Center for Computational Quantum
+              Physics</div>
+          </div>
+        </div>
+        <div class="cv-row">
+          <div class="cv-period">2018 – 2019</div>
+          <div>
+            <div class="cv-title">Perimeter Scholars International Award</div>
+            <div class="cv-sub">Perimeter Institute for Theoretical Physics</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-cta">
+        Full CV available upon request &nbsp;·&nbsp; <a href="mailto:mmedvidovic@ethz.ch">mmedvidovic@ethz.ch</a>
+      </div>
+
+    </section>
+
+    <!-- ── PUBLICATIONS ───────────────────────────────── -->
+    <section id="publications">
+      <div class="eyebrow">Papers</div>
+      <h2>Publications</h2>
+
+      <!-- 2026 -->
+      <div class="pub-year-group">
+        <div class="pub-year-label">2026</div>
+
+        <div class="pub preprint">
+          <div class="pub-dot"></div>
+          <div class="pub-body">
+            <div class="pub-title">Neural network quantum states in the grand canonical ensemble</div>
+            <div class="pub-authors">A. Hul, <b>M. Medvidović</b>, J. Carrasquilla</div>
+            <div class="pub-venue">arXiv preprint</div>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/2605.07779" target="_blank" rel="noopener"
+                class="pub-link arxiv">arXiv:2605.07779</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2025 -->
+      <div class="pub-year-group">
+        <div class="pub-year-label">2025</div>
+
+        <div class="pub preprint">
+          <div class="pub-dot"></div>
+          <div class="pub-body">
+            <div class="pub-title">Adiabatic transport of neural network quantum states</div>
+            <div class="pub-authors"><b>M. Medvidović</b>, A. Orfi, J. Carrasquilla, D. Sels</div>
+            <div class="pub-venue">arXiv preprint</div>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/2510.15030" target="_blank" rel="noopener"
+                class="pub-link arxiv">arXiv:2510.15030</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub">
+          <div class="pub-dot"></div>
+          <div class="pub-body">
+            <div class="pub-title">Neural network distillation of orbital dependent density functional theory</div>
+            <div class="pub-authors"><b>M. Medvidović</b>, J. C. Umana, I. Ahmadabadi, D. Di Sante, J. Flick, A. Rubio
+            </div>
+            <div class="pub-venue">Physical Review Research 7, 023113</div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1103/PhysRevResearch.7.023113" target="_blank" rel="noopener"
+                class="pub-link journal">Journal</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2024 -->
+      <div class="pub-year-group">
+        <div class="pub-year-label">2024</div>
+
+        <div class="pub preprint">
+          <div class="pub-dot"></div>
+          <div class="pub-body">
+            <div class="pub-title">Machine learning-based compression of quantum many-body physics: PCA and autoencoder
+              representation of the vertex function</div>
+            <div class="pub-authors">J. Zang, <b>M. Medvidović</b>, D. Kiese, D. Di Sante, A. Sengupta, A. Millis</div>
+            <div class="pub-venue">arXiv preprint</div>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/2403.15372" target="_blank" rel="noopener"
+                class="pub-link arxiv">arXiv:2403.15372</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub">
+          <div class="pub-dot"></div>
+          <div class="pub-body">
+            <div class="pub-title">Neural-network quantum states for many-body physics <span class="badge">Review</span>
+            </div>
+            <div class="pub-authors"><b>M. Medvidović</b>, J. Robledo Moreno</div>
+            <div class="pub-venue">The European Physical Journal Plus 139, 631</div>
+          </div>
+        </div>
+
+        <div class="pub">
+          <div class="pub-dot"></div>
+          <div class="pub-body">
+            <div class="pub-title">GradDFT: a software library for machine learning enhanced density functional theory
+            </div>
+            <div class="pub-authors">P. A. M. Casares, J. S. Baker, <b>M. Medvidović</b>, R. dos Reis, J. M. Arrazola
+            </div>
+            <div class="pub-venue">The Journal of Chemical Physics 160, 062501</div>
+          </div>
+        </div>
+
+        <div class="pub">
+          <div class="pub-dot"></div>
+          <div class="pub-body">
+            <div class="pub-title">Compressing the two-particle Green's function using wavelets</div>
+            <div class="pub-authors">E. Moghadas, N. Dräger, A. Toschi, J. Zang, <b>M. Medvidović</b>, D. Kiese, A. J.
+              Millis, A. M. Sengupta, S. Andergassen, D. di Sante</div>
+            <div class="pub-venue">The European Physical Journal Plus 139, 700</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2023 -->
+      <div class="pub-year-group">
+        <div class="pub-year-label">2023</div>
+
+        <div class="pub">
+          <div class="pub-dot"></div>
+          <div class="pub-body">
+            <div class="pub-title">Variational quantum dynamics of two-dimensional rotor models</div>
+            <div class="pub-authors"><b>M. Medvidović</b>, D. Sels</div>
+            <div class="pub-venue">PRX Quantum 4, 040302</div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1103/PRXQuantum.4.040302" target="_blank" rel="noopener"
+                class="pub-link journal">Journal</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub">
+          <div class="pub-dot"></div>
+          <div class="pub-body">
+            <div class="pub-title">Fast quantum circuit cutting with randomized measurements</div>
+            <div class="pub-authors">A. Lowe, <b>M. Medvidović</b>, A. Hayes, L. J. O'Riordan, T. R. Bromley, J. M.
+              Arrazola, N. Killoran</div>
+            <div class="pub-venue">Quantum 7, 934</div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.22331/q-2023-03-02-934" target="_blank" rel="noopener"
+                class="pub-link journal">Journal</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2022 -->
+      <div class="pub-year-group">
+        <div class="pub-year-label">2022</div>
+
+        <div class="pub">
+          <div class="pub-dot"></div>
+          <div class="pub-body">
+            <div class="pub-title">Deep learning the functional renormalization group <span class="badge">NeurIPS
+                2022</span></div>
+            <div class="pub-authors">D. di Sante, <b>M. Medvidović</b>, A. Toschi, G. Sangiovanni, C. Franchini, A.
+              Sengupta, A. Millis</div>
+            <div class="pub-venue">Physical Review Letters 129, 136402</div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1103/PhysRevLett.129.136402" target="_blank" rel="noopener"
+                class="pub-link journal">Journal</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2021 -->
+      <div class="pub-year-group">
+        <div class="pub-year-label">2021</div>
+
+        <div class="pub">
+          <div class="pub-dot"></div>
+          <div class="pub-body">
+            <div class="pub-title">Classical variational simulation of the Quantum Approximate Optimization Algorithm
+              <span class="badge">NeurIPS 2021</span>
+            </div>
+            <div class="pub-authors"><b>M. Medvidović</b>, G. Carleo</div>
+            <div class="pub-venue">npj Quantum Information 7, 101</div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1038/s41534-021-00440-z" target="_blank" rel="noopener"
+                class="pub-link journal">Journal</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2020 -->
+      <div class="pub-year-group">
+        <div class="pub-year-label">2020</div>
+
+        <div class="pub preprint">
+          <div class="pub-dot"></div>
+          <div class="pub-body">
+            <div class="pub-title">Generative models for sampling of lattice field theories <span class="badge">NeurIPS
+                2020</span></div>
+            <div class="pub-authors"><b>M. Medvidović</b>, J. Carrasquilla, L. E. Hayward, B. Kulchytskyy</div>
+            <div class="pub-venue">NeurIPS 2020, ML and the Physical Sciences workshop</div>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/2012.01442" target="_blank" rel="noopener"
+                class="pub-link arxiv">arXiv:2012.01442</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2019 -->
+      <div class="pub-year-group">
+        <div class="pub-year-label">2019</div>
+
+        <div class="pub">
+          <div class="pub-dot"></div>
+          <div class="pub-body">
+            <div class="pub-title">Effective geometry Monte Carlo: a fast and reliable simulation framework for
+              molecular communications</div>
+            <div class="pub-authors">F. Dinç, <b>M. Medvidović</b>, L. Thiele</div>
+            <div class="pub-venue">IEEE Access 7, 28635</div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <span>Matija Medvidović &nbsp;·&nbsp; ETH Zürich</span>
+    <a href="mailto:mmedvidovic@ethz.ch" style="color:inherit;text-decoration:none;">mmedvidovic@ethz.ch</a>
+  </footer>
+
+</body>
+
+</html>
